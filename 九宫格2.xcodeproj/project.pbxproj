@@ -14,6 +14,10 @@
 		7D1157721A99A88500C98568 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D1157711A99A88500C98568 /* Images.xcassets */; };
 		7D1157751A99A88500C98568 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D1157731A99A88500C98568 /* LaunchScreen.xib */; };
 		7D1157811A99A88500C98568 /* ___2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1157801A99A88500C98568 /* ___2Tests.m */; };
+		7D11578B1A99A90A00C98568 /* app.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D11578A1A99A90A00C98568 /* app.plist */; };
+		7D11578F1A99AB9600C98568 /* JHAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D11578E1A99AB9600C98568 /* JHAppInfo.m */; };
+		7DC738171A9AC62F00BC01C3 /* appInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DC738161A9AC62F00BC01C3 /* appInfoView.xib */; };
+		7DC738191A9AD39F00BC01C3 /* JHAppInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC738181A9AD39F00BC01C3 /* JHAppInfoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,12 @@
 		7D11577A1A99A88500C98568 /* 九宫格2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "九宫格2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D11577F1A99A88500C98568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1157801A99A88500C98568 /* ___2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "___2Tests.m"; sourceTree = "<group>"; };
+		7D11578A1A99A90A00C98568 /* app.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = app.plist; path = "../../../dev/0522/代码/03-应用管理/03-应用管理/app.plist"; sourceTree = "<group>"; };
+		7D11578C1A99AA0B00C98568 /* JHAppInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHAppInfo.h; sourceTree = "<group>"; };
+		7D11578E1A99AB9600C98568 /* JHAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAppInfo.m; sourceTree = "<group>"; };
+		7DC738161A9AC62F00BC01C3 /* appInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = appInfoView.xib; sourceTree = "<group>"; };
+		7DC738181A9AD39F00BC01C3 /* JHAppInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAppInfoView.m; sourceTree = "<group>"; };
+		7DC7381B1A9AD3E600BC01C3 /* JHAppInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHAppInfoView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,11 @@
 				7D1157691A99A88500C98568 /* AppDelegate.m */,
 				7D11576B1A99A88500C98568 /* ViewController.h */,
 				7D11576C1A99A88500C98568 /* ViewController.m */,
+				7DC738161A9AC62F00BC01C3 /* appInfoView.xib */,
+				7DC738181A9AD39F00BC01C3 /* JHAppInfoView.m */,
+				7DC7381B1A9AD3E600BC01C3 /* JHAppInfoView.h */,
+				7D11578C1A99AA0B00C98568 /* JHAppInfo.h */,
+				7D11578E1A99AB9600C98568 /* JHAppInfo.m */,
 				7D11576E1A99A88500C98568 /* Main.storyboard */,
 				7D1157711A99A88500C98568 /* Images.xcassets */,
 				7D1157731A99A88500C98568 /* LaunchScreen.xib */,
@@ -96,6 +111,7 @@
 		7D1157641A99A88500C98568 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7D11578A1A99A90A00C98568 /* app.plist */,
 				7D1157651A99A88500C98568 /* Info.plist */,
 				7D1157661A99A88500C98568 /* main.m */,
 			);
@@ -199,8 +215,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D11578B1A99A90A00C98568 /* app.plist in Resources */,
 				7D1157701A99A88500C98568 /* Main.storyboard in Resources */,
 				7D1157751A99A88500C98568 /* LaunchScreen.xib in Resources */,
+				7DC738171A9AC62F00BC01C3 /* appInfoView.xib in Resources */,
 				7D1157721A99A88500C98568 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D11576D1A99A88500C98568 /* ViewController.m in Sources */,
+				7D11578F1A99AB9600C98568 /* JHAppInfo.m in Sources */,
 				7D11576A1A99A88500C98568 /* AppDelegate.m in Sources */,
+				7DC738191A9AD39F00BC01C3 /* JHAppInfoView.m in Sources */,
 				7D1157671A99A88500C98568 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +432,7 @@
 				7D1157861A99A88500C98568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D1157871A99A88500C98568 /* Build configuration list for PBXNativeTarget "九宫格2Tests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +441,7 @@
 				7D1157891A99A88500C98568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
