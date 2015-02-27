@@ -69,7 +69,7 @@
         
         JHAppinfoView *appView = [JHAppinfoView appInfoViewWithAppInfo:self.appList[i]];
         
-        appView.delegate = self;//注册代理对象
+        appView.delegate = self;//设置代理对象
         
         appView.frame = CGRectMake(x, y, viewW, viewH);
         

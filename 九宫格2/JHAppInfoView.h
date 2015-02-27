@@ -20,6 +20,7 @@
 // 1.定义协议
 @protocol JHAppInfoViewDelegate <NSObject>
 
+// 代理要实现的方法
 - (void) appInfoViewDownLoad:(JHAppinfoView *) appInfoView;
 
 @end

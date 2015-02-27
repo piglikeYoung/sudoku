@@ -44,6 +44,7 @@
 - (IBAction)downloadClick:(UIButton *)sender {
     
     // 3.让代理去办事
+    // 先判断代理是否实现了方法，如果实现了让代理去执行
     if ([self.delegate respondsToSelector:@selector(appInfoViewDownLoad:)]) {
         [self.delegate appInfoViewDownLoad:self];
     }
