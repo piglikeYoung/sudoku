@@ -13,7 +13,6 @@
     
     @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
     @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-    @property (nonatomic,strong) JHAppInfo *appInfo;
 
 @end
 
@@ -44,35 +43,10 @@
 
 - (IBAction)downloadClick:(UIButton *)sender {
     
-    // 实例化一个UILabel显示在视图上，提示用户下载完成
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(80, 400, 160, 40)];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor lightGrayColor];
-    
-    JHAppInfo *appInfo = self.appInfo;
-    label.text = [NSString stringWithFormat:@"下载%@完成",appInfo.name];
-    label.font = [UIFont systemFontOfSize:13.0];
-    label.alpha = 1.0;
-    
-    // self.surperview就是viewController的view
-    [self.superview addSubview:label];
-    // 动画效果
-    // 动画效果完成之后，将Label从视图中删除
-    // 首尾式动画，只能做动画，要处理完成后的操作不方便
-    //    [UIView beginAnimations:nil context:nil];
-    //    [UIView setAnimationDuration:1.0];
-    //    label.alpha = 1.0;
-    //    [UIView commitAnimations];
-    
-    
-    // block动画比首尾式动画简单，而且能够控制动画结束后的操作
-    // 在iOS中，基本都使用首尾式动画
-    [UIView animateWithDuration:2.0 animations:^{
-        label.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        // 删除label
-        [label removeFromSuperview];
-    }];
+    // 3.让代理去办事
+    if ([self.delegate respondsToSelector:@selector(appInfoViewDownLoad:)]) {
+        [self.delegate appInfoViewDownLoad:self];
+    }
 
 }
 

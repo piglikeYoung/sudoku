@@ -10,7 +10,7 @@
 #import "JHAppInfo.h"
 #import "JHAppInfoView.h"
 
-@interface ViewController ()
+@interface ViewController ()<JHAppInfoViewDelegate>
 @property (nonatomic, strong) NSArray *appList;
 @end
 
@@ -67,64 +67,50 @@
         CGFloat x = marginX + (viewW + marginX) * col;
         CGFloat y = startY + marginY + (viewH + marginY) * row;
         
-//        UIView *appView = [[UIView alloc] initWithFrame:CGRectMake(x, y, viewW, viewH)];
-        // loadNibNamed会将名为 appInfoView 中定义的所有视图全部加载出来，并且按照XIB中定义的顺序，返回一个视图的数组
-//        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"appInfoView" owner:nil options:nil];
-//        JHAppinfoView *appView = [array firstObject];
         JHAppinfoView *appView = [JHAppinfoView appInfoViewWithAppInfo:self.appList[i]];
+        
+        appView.delegate = self;//注册代理对象
         
         appView.frame = CGRectMake(x, y, viewW, viewH);
         
         [self.view addSubview:appView];
         
-        // 创建appView内部的细节
-        // 0> 读取数组中的字典
-//        NSDictionary *dict = self.appList[i];
-//        JHAppInfo *appInfo = self.appList[i];
-//        appView.appInfo = self.appList[i];
-        
-        // 1> UIImageView
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, viewW, 50)];
-//        UIImageView *imageView = appView.subviews[0];
-//        UIImageView *imageView = (UIImageView *) [appView viewWithTag:1];
-//        imageView.image = appInfo.image;
-//        appView.iconImage.image = appInfo.image;
-        
-        // 2> UILabel
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.bounds.size.height, viewW, 20)];
-//        UILabel *label = appView.subviews[1];
-//        UILabel *label = (UILabel *) [appView viewWithTag:2];
-        
-        // 设置文字
-//        label.text = appInfo.name;
-//        appView.nameLabel.text = appInfo.name;
-        
-        // 3> UIButton
-        // UIButtonTypeCustom和[[UIButton alloc] init]是等价的
-//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//        UIButton *button = appView.subviews[2];
-//        UIButton *button = (UIButton *) [appView viewWithTag:3];
-        
-        
-//        [button setTitle:@"下载" forState:UIControlStateNormal];
-        // *** 不能使用如下代码直接设置title
-        //        button.titleLabel.text = @"下载";
-        // @property中readonly表示不允许修改对象的指针地址，但是可以修改对象的属性
-//        button.titleLabel.font= [UIFont systemFontOfSize:14.0];
-        
-//        [button setBackgroundImage:[UIImage imageNamed:@"buttongreen"] forState:UIControlStateNormal];
-//        [button setBackgroundImage:[UIImage imageNamed:@"buttongreen_highlighted"] forState:UIControlStateHighlighted];
-        
-        
-//        appView.btn.tag = i;
-        
-//        [appView.btn addTarget:self action:@selector(downloadClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
-//- (void) downloadClick:(UIButton *)button{
-//   
-//}
+- (void)appInfoViewDownLoad:(JHAppinfoView *)appInfoView{
+    
+        // 实例化一个UILabel显示在视图上，提示用户下载完成
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(80, 400, 160, 40)];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor lightGrayColor];
+    
+        JHAppInfo *appInfo = appInfoView.appInfo;
+        label.text = [NSString stringWithFormat:@"下载%@完成",appInfo.name];
+        label.font = [UIFont systemFontOfSize:13.0];
+        label.alpha = 1.0;
+    
+        // self.surperview就是viewController的view
+        [self.view addSubview:label];
+        // 动画效果
+        // 动画效果完成之后，将Label从视图中删除
+        // 首尾式动画，只能做动画，要处理完成后的操作不方便
+        //    [UIView beginAnimations:nil context:nil];
+        //    [UIView setAnimationDuration:1.0];
+        //    label.alpha = 1.0;
+        //    [UIView commitAnimations];
+    
+    
+        // block动画比首尾式动画简单，而且能够控制动画结束后的操作
+        // 在iOS中，基本都使用首尾式动画
+        [UIView animateWithDuration:2.0 animations:^{
+            label.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            // 删除label
+            [label removeFromSuperview];
+        }];
+}
+
 
 @end
 

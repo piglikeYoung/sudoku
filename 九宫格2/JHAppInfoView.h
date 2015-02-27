@@ -15,11 +15,21 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @class JHAppInfo;
+@class JHAppinfoView;
+
+// 1.定义协议
+@protocol JHAppInfoViewDelegate <NSObject>
+
+- (void) appInfoViewDownLoad:(JHAppinfoView *) appInfoView;
+
+@end
 
 @interface JHAppinfoView : UIView
 
+// 2.声明代理变量
+@property (weak,nonatomic) id<JHAppInfoViewDelegate> delegate;
 
-+ (instancetype) appInfoView;
+@property (nonatomic,strong) JHAppInfo *appInfo;
 
 + (instancetype) appInfoViewWithAppInfo:(JHAppInfo *)appInfo;
 
